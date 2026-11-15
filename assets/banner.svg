@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Linear Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b19" />
+      <stop offset="50%" stop-color="#0b1736" />
+      <stop offset="100%" stop-color="#050814" />
+    </linearGradient>
+
+    <!-- Accent Gradient for Borders & Highlights -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0078D4" />
+      <stop offset="50%" stop-color="#00BCF2" />
+      <stop offset="100%" stop-color="#50E6FF" />
+    </linearGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.07)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0.02)" />
+    </linearGradient>
+
+    <!-- Glowing Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="lightGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    .title-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      font-size: 40px;
+      fill: #ffffff;
+      letter-spacing: -0.5px;
+    }
+    .sub-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      fill: #94A3B8;
+    }
+    .pill-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      fill: #E2E8F0;
+    }
+
+    /* CSS Keyframe Animations */
+    @keyframes pulseOrb {
+      0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.35; }
+      50% { transform: scale(1.18) translate(15px, -10px); opacity: 0.6; }
+    }
+    @keyframes pulseBackup {
+      0%, 100% { stroke-dashoffset: 0; }
+      50% { stroke-dashoffset: 40; }
+    }
+    @keyframes floatPill {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+    @keyframes flowLine {
+      from { stroke-dashoffset: 200; }
+      to { stroke-dashoffset: 0; }
+    }
+
+    .orb-1 {
+      animation: pulseOrb 8s ease-in-out infinite;
+      transform-origin: 200px 100px;
+    }
+    .orb-2 {
+      animation: pulseOrb 10s ease-in-out infinite reverse;
+      transform-origin: 1000px 260px;
+    }
+    .data-flow {
+      stroke-dasharray: 8 6;
+      animation: flowLine 5s linear infinite;
+    }
+    .pill-animated-1 {
+      animation: floatPill 4s ease-in-out infinite;
+    }
+    .pill-animated-2 {
+      animation: floatPill 4.5s ease-in-out infinite 0.7s;
+    }
+    .pill-animated-3 {
+      animation: floatPill 5s ease-in-out infinite 1.4s;
+    }
+    .pill-animated-4 {
+      animation: floatPill 4.2s ease-in-out infinite 2.1s;
+    }
+  </style>
+
+  <!-- Deep Background Layer -->
+  <rect width="1200" height="360" rx="16" fill="url(#bgGrad)" />
+
+  <!-- Animated Ambient Glow Orbs in Deep Background -->
+  <circle class="orb-1" cx="220" cy="90" r="140" fill="#0078D4" filter="url(#glow)" />
+  <circle class="orb-2" cx="980" cy="270" r="160" fill="#00BCF2" filter="url(#glow)" />
+  <circle cx="600" cy="180" r="220" fill="#002050" opacity="0.4" filter="url(#glow)" />
+
+  <!-- Grid Pattern Overlay for Enterprise Tech Theme -->
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="60" x2="1200" y2="60" />
+    <line x1="0" y1="120" x2="1200" y2="120" />
+    <line x1="0" y1="180" x2="1200" y2="180" />
+    <line x1="0" y1="240" x2="1200" y2="240" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="200" y1="0" x2="200" y2="360" />
+    <line x1="400" y1="0" x2="400" y2="360" />
+    <line x1="600" y1="0" x2="600" y2="360" />
+    <line x1="800" y1="0" x2="800" y2="360" />
+    <line x1="1000" y1="0" x2="1000" y2="360" />
+  </g>
+
+  <!-- Dynamic Cloud-to-Cloud Data Sync Flow Stream in Background -->
+  <g fill="none" opacity="0.6">
+    <!-- Connecting Stream 1 -->
+    <path class="data-flow" d="M 120,290 C 350,330 450,260 700,280 C 900,295 1050,240 1120,210" stroke="#00BCF2" stroke-width="2.5" />
+    <!-- Connecting Stream 2 -->
+    <path class="data-flow" d="M 80,70 C 260,40 500,100 820,50 C 980,25 1080,80 1140,110" stroke="#50E6FF" stroke-width="2" />
+  </g>
+
+  <!-- Outer Protective Frame -->
+  <rect x="1" y="1" width="1198" height="358" rx="15" fill="none" stroke="url(#accentGrad)" stroke-width="1.5" opacity="0.5" />
+
+  <!-- Background Decorative Cloud Icons (Out-of-focus / Ambient) -->
+  <g opacity="0.18" fill="#00BCF2">
+    <!-- Cloud Left -->
+    <path d="M 110,140 a 25,25 0 0,1 42,-12 a 35,35 0 0,1 62,10 a 28,28 0 0,1 -8,55 l -90,0 a 26,26 0 0,1 -6,-53 z" />
+    <!-- Cloud Right -->
+    <path d="M 1010,120 a 30,30 0 0,1 50,-15 a 42,42 0 0,1 75,12 a 34,34 0 0,1 -10,66 l -108,0 a 32,32 0 0,1 -7,-63 z" />
+  </g>
+
+  <!-- FOREGROUND LAYER: Badges, Title, Subtitle, and Workload Pills -->
+  <!-- Top Category Chip -->
+  <g transform="translate(60, 48)">
+    <rect width="210" height="30" rx="15" fill="rgba(0, 120, 212, 0.25)" stroke="#0078D4" stroke-width="1" />
+    <circle cx="16" cy="15" r="4" fill="#50E6FF" filter="url(#lightGlow)" />
+    <text x="30" y="20" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" fill="#50E6FF" letter-spacing="1">ENTERPRISE CURATED LIST</text>
+  </g>
+
+  <!-- Main Headline Title (Crisp foreground) -->
+  <text x="60" y="128" class="title-text">
+    Awesome Microsoft 365
+  </text>
+  <text x="60" y="174" class="title-text" fill="url(#accentGrad)">
+    Cloud-to-Cloud Backup
+  </text>
+
+  <!-- Subtitle (Clear high-contrast readability) -->
+  <text x="60" y="214" class="sub-text">
+    A definitive guide to SaaS platforms &amp; open-source engines for Exchange, OneDrive, SharePoint, &amp; Teams
+  </text>
+
+  <!-- Dynamic Foreground Workload Pills with subtle float animations -->
+  <!-- Pill 1: Exchange Online -->
+  <g class="pill-animated-1" transform="translate(60, 252)">
+    <rect width="180" height="42" rx="10" fill="url(#cardGrad)" stroke="rgba(0, 188, 242, 0.4)" stroke-width="1" />
+    <circle cx="24" cy="21" r="6" fill="#0078D4" />
+    <text x="40" y="26" class="pill-text">Exchange Online</text>
+  </g>
+
+  <!-- Pill 2: SharePoint & OneDrive -->
+  <g class="pill-animated-2" transform="translate(254, 252)">
+    <rect width="220" height="42" rx="10" fill="url(#cardGrad)" stroke="rgba(0, 188, 242, 0.4)" stroke-width="1" />
+    <circle cx="24" cy="21" r="6" fill="#00BCF2" />
+    <text x="40" y="26" class="pill-text">SharePoint &amp; OneDrive</text>
+  </g>
+
+  <!-- Pill 3: Microsoft Teams -->
+  <g class="pill-animated-3" transform="translate(488, 252)">
+    <rect width="170" height="42" rx="10" fill="url(#cardGrad)" stroke="rgba(0, 188, 242, 0.4)" stroke-width="1" />
+    <circle cx="24" cy="21" r="6" fill="#6264A7" />
+    <text x="40" y="26" class="pill-text">Microsoft Teams</text>
+  </g>
+
+  <!-- Pill 4: Immutable Air-Gap -->
+  <g class="pill-animated-4" transform="translate(672, 252)">
+    <rect width="190" height="42" rx="10" fill="url(#cardGrad)" stroke="rgba(0, 230, 150, 0.4)" stroke-width="1" />
+    <circle cx="24" cy="21" r="6" fill="#107C41" />
+    <text x="40" y="26" class="pill-text">Immutable Air-Gap</text>
+  </g>
+
+  <!-- Pill 5: Entra ID / Config -->
+  <g class="pill-animated-1" transform="translate(876, 252)">
+    <rect width="180" height="42" rx="10" fill="url(#cardGrad)" stroke="rgba(160, 100, 255, 0.4)" stroke-width="1" />
+    <circle cx="24" cy="21" r="6" fill="#8764B8" />
+    <text x="40" y="26" class="pill-text">Entra ID &amp; M365DSC</text>
+  </g>
+</svg>
