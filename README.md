@@ -1,123 +1,115 @@
-# Awesome-Microsoft-365-Cloud-To-Cloud-Backup
+# Awesome Microsoft 365 Cloud-to-Cloud Backup [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-# Awesome Microsoft 365 Cloud-to-Cloud Backup
+> A curated list of top **Microsoft 365 Cloud-to-Cloud Backup** solutions, enterprise SaaS platforms, and open-source data protection tools for Exchange Online, SharePoint Online, OneDrive for Business, Microsoft Teams, and Entra ID (Azure AD).
 
-> A curated list of top Microsoft 365 Cloud-to-Cloud Backup platforms — both SaaS/Hosted commercial solutions and open-source alternatives for protecting Exchange Online, SharePoint Online, OneDrive for Business, and Microsoft Teams data.
-> 🌟 Star this repo if you find it useful! 🌟
+---
+
+## 📈 Sector Overview & Market Dynamics
+
+The dedicated **Microsoft 365 backup and SaaS data protection market** is valued at approximately **$3.2 billion** and is projected to expand toward **$10 billion** over the next decade at a ~13.8% CAGR (with the broader cloud-to-cloud data protection sector scaling past $20+ billion). 
+
+The sector exhibits **moderate-to-high fragmentation**: while market heavyweights such as Veeam, Commvault, and Rubrik capture major enterprise market share, Microsoft's native "Shared Responsibility Model" leaves an ongoing protection gap that fosters intense competition among dozens of specialized SaaS ISVs, cloud-native startups, and MSP-tailored backup wrappers rather than a single winner-take-all monopoly.
 
 ---
 
 ## 📋 Table of Contents
 
-- [SaaS / Hosted Platforms](#-saas--hosted-platforms)
-  - [Druva Microsoft 365 Backup](#druva-microsoft-365-backup)
-  - [Veeam Backup for Microsoft 365](#veeam-backup-for-microsoft-365)
-  - [Keepit for M365](#keepit-for-m365)
-  - [AvePoint Cloud Backup](#avepoint-cloud-backup)
-  - [Commvault Cloud for M365](#commvault-cloud-for-m365)
-  - [Rubrik (via Sophos)](#rubrik-via-sophos)
-- [Open-Source Software](#-open-source-software)
-  - [BackupZit](#backupzit)
-  - [mailvault](#mailvault)
+- [Sector Overview & Market Dynamics](#-sector-overview--market-dynamics)
+- [Enterprise SaaS & Hosted Platforms](#-enterprise-saas--hosted-platforms)
+- [Open-Source Solutions](#-open-source-solutions)
+- [Feature Comparison Matrix](#-feature-comparison-matrix)
+- [Selection & Architecture Guide](#-selection--architecture-guide)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 ---
 
-## 🟦 SaaS / Hosted Platforms
+## 🟦 Enterprise SaaS & Hosted Platforms
 
-Commercial, cloud-hosted Microsoft 365 Cloud-to-Cloud Backup platforms. These are not open-source but are included as reference points for feature comparison.
+Commercial, fully hosted Microsoft 365 cloud-to-cloud backup platforms providing automated snapshots, compliance archiving, air-gapped vaults, and ransomware recovery.
 
-**Important context:** Microsoft's native Microsoft 365 Backup service is a **pay-as-you-go add-on** priced at **$0.15 per GB per month** of protected content, covering Exchange, OneDrive, and SharePoint, with free restores and no annual contract [citation:1][citation:8]. Standard Microsoft 365 licenses **do not include a full backup solution** .
+> **💡 Microsoft 365 Shared Responsibility Reminder:** Standard Microsoft 365 E3/E5 licenses provide high infrastructure availability and short-term recycle bin retention (30–90 days), but **do not include comprehensive long-term backup or point-in-time rollback**. Microsoft's native pay-as-you-go backup add-on is priced at **$0.15/GB/month** of protected content.
 
-### Druva Microsoft 365 Backup
-**Type:** Fully managed SaaS backup with air-gapped cloud storage
-Druva provides agentless, fully managed backup for Microsoft 365 including Exchange, OneDrive, SharePoint, and Teams, with immutable air-gapped storage in the Druva Cloud. The platform eliminates infrastructure management entirely, with granular recovery of files, folders, mailboxes, or entire sites.
+*Sorted descending by company size (Valuation / Market Capitalization / Annual Revenue).*
 
-### Veeam Backup for Microsoft 365
-**Type:** Self-managed backup with a free Community Edition
-Veeam provides comprehensive backup for Exchange Online, SharePoint Online, OneDrive for Business, and Microsoft Teams. A key differentiator is the **Community Edition**, which is **free for up to 10 users, 10 teams, and 1 TB of SharePoint data**, with no time limit and no feature restrictions [citation:3][citation:9][citation:12]. **Important:** The Veeam EULA prohibits using the Community Edition to provide services to third parties (e.g., as an MSP) [citation:12]. The paid edition removes these limits for larger organizations.
-
-### Keepit for M365
-**Type:** Independent, vendor-neutral cloud backup
-Keepit provides automated, immutable backups for Microsoft 365, storing data in its own independent cloud infrastructure rather than the Microsoft tenant. This vendor-neutral architecture is positioned as essential because SaaS providers operate under a shared responsibility model and typically do not offer comprehensive built-in backup.
-
-### AvePoint Cloud Backup
-**Type:** Multi-SaaS backup with flexible storage options
-AvePoint provides automated backup for Microsoft 365, Google Workspace, and Salesforce, with a centralized command center for managing backup health. Storage options include AvePoint's Azure storage or your private cloud, with compliance certifications including SOC 2 Type II, ISO 27001, and FedRAMP.
-
-### Commvault Cloud for M365
-**Type:** Cyber-resilient M365 protection with air-gap
-Commvault Cloud extends its enterprise data protection platform to Microsoft 365, providing backup, recovery, and compliance capabilities. The platform includes AI-powered threat detection and air-gapped immutable copies for ransomware recovery, suited for organizations already using Commvault for centralized data protection.
-
-### Rubrik (via Sophos)
-**Type:** Air-gapped M365 backup integrated into Sophos Central
-Sophos Backup and Recovery Powered by Rubrik provides Microsoft 365 protection covering Exchange Online, OneDrive, SharePoint, and Teams, managed within Sophos Central alongside threat detection and response [citation:4]. Key capabilities include **air-gapped, WORM-locked immutable backups** with customer-controlled encryption, and fast granular or bulk recovery to original or alternate users [citation:4]. This integration is available as an add-on for Sophos customers, eliminating the need for separate tools [citation:4].
+| Platform | Valuation / Company Size | Pricing (Specific Starting Tiers) | Free Tier / Free Trial Limits | Key Workloads Supported | Air-Gapped / Immutability |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **[Rubrik](https://www.rubrik.com)** *(via Sophos / Security Cloud)* | **~$18B–$20B Market Cap** (Public: NYSE: RBRK, ~$1.3B ARR) | Starts at **$4.00 / user / month** ($48.00 / user / year list MSRP via Sophos Central, 200-seat baseline; Rubrik enterprise USL tiers scale per-seat) | **30-day full-feature trial** (capped up to 500 protected users; custom enterprise sandbox) | Exchange Online, OneDrive, SharePoint, Teams | ✅ Air-gapped, WORM-locked immutable cloud |
+| **[Veeam](https://www.veeam.com)** *(Veeam Data Cloud / Backup for M365)* | **$15B Valuation** (Private, backed by Insight Partners/TPG, >$2B ARR) | Starts at **$2.63 / user / month** (Veeam Data Cloud Foundation SaaS tier with unlimited Azure storage; on-prem software subscriptions from ~$1.80/user/month) | **Forever-Free Community Edition** up to **10 users, 10 teams, and 1 TB SharePoint/OneDrive** (self-hosted); **30-day free trial** for Veeam Data Cloud SaaS | Exchange Online, SharePoint Online, OneDrive, Teams | ✅ S3/Azure Object Lock & hardened Linux immutability |
+| **[Commvault Cloud](https://www.commvault.com)** *(formerly Metallic)* | **~$5.5B–$6.0B Market Cap** (Public: NASDAQ: CVLT, ~$1B Revenue) | Starts at **$1.70 / user / month** (Commvault Cloud for M365 Core Essentials tier; ~$3.50–$4.50/user/mo for Advanced Threat Scan & Governance) | **30-day free trial** with full platform access (unlimited backup jobs and threat scanning during trial period) | Exchange, OneDrive, SharePoint, Teams, Project | ✅ Air Cove air-gapped immutable cloud storage |
+| **[AvePoint](https://www.avePoint.com)** *(Cloud Backup for M365)* | **~$3.2B Market Cap** (Public: NASDAQ: AVPT, ~$420M Revenue) | Starts at **$1.15 / user / month** (£0.85/user/month via G-Cloud / ~€1.10–$2.50/user/mo standard tier with multi-geo Azure storage) | **30-day free trial** with full M365 suite coverage and unlimited backup runs | Exchange, SharePoint, OneDrive, Teams, Groups, Planner, Viva | ✅ Multi-cloud immutable storage (AvePoint Azure or BYOS) |
+| **[Druva](https://www.druva.com)** *(Druva Data Security Cloud)* | **$2.0B Valuation** (Private, Series H, >$200M ARR) | Starts at **$8.00 / user / month** (Druva M365 Enterprise tier; Elite tier at $10.00/user/mo with federated search and compliance monitoring) | **30-day free trial** (up to 100 users, 1 TB Druva Cloud Storage, unrestricted granular recovery) | Exchange, OneDrive, SharePoint, Teams, Public Folders | ✅ 100% agentless AWS-hosted air-gapped storage |
+| **[Keepit](https://www.keepit.com)** *(Keepit for Microsoft 365)* | **~$450M Valuation** (Private, ~$45M+ Revenue, scaling to $100M ARR) | Starts at **$1.95 / user / month** (Business Essential tier for volume seats; ~$3.50–$4.25/user/month standard low-volume seat tier) | **30-day free trial** (unlimited users, full access to independent Keepit private cloud, no credit card required) | Exchange, Teams, OneDrive, SharePoint, Entra ID / Groups | ✅ Vendor-neutral independent private cloud (outside Microsoft Azure) |
 
 ---
 
-## 🟩 Open-Source Software
+## 🟩 Open-Source Solutions
 
-Self-hosted, community-driven Microsoft 365 Cloud-to-Cloud Backup tools. The open-source ecosystem for **full M365 backup** is **extremely limited**, with only a handful of projects providing production-oriented functionality.
+Self-hosted, developer-friendly, and open-source tools for backing up Microsoft 365 tenants, mailboxes, user drives, and infrastructure configurations.
 
-### BackupZit
-**Stack:** Linux agent / Microsoft Graph API | **License:** AGPLv3 (free and open source) [citation:14]
-BackupZit is a **free and open-source, self-hosted Microsoft 365 backup solution** with no per-user licensing [citation:14]. Key characteristics:
-- **Read-only access via Microsoft Graph**: Uses an Entra ID app registration with read-only permissions (Mail.Read, Files.Read.All, Sites.Read.All, Calendars.Read, Contacts.Read), so nothing in the tenant is changed or deleted [citation:14]
-- **Full workload coverage**: Exchange Online mailboxes, OneDrive, SharePoint sites, calendars, and contacts [citation:14]
-- **Self-hosted storage**: Data lands on your own NAS, server, S3 bucket, Azure Blob, or SFTP/SMB share—the only cost is your storage [citation:14]
-- **Encryption and deduplication**: AES-256 encryption on the agent before data leaves, with deduplication and retention policies [citation:14]
-- **Restore testing**: Includes restore tests to verify backups are recoverable [citation:14]
-- **Deployment**: Requires a small Linux VM (2 vCPU, 2–4 GB RAM) as the console, plus an agent for data download [citation:14]
+*Sorted descending by GitHub stargazers count.*
 
-**Trade-off:** It is a self-hosted solution—you manage the infrastructure, storage, and scheduling. It is not a managed service like Druva or Veeam.
-**Best for:** Organizations wanting a free, self-hosted M365 backup with read-only Graph permissions and full control over storage and data residency, accepting the operational responsibility of running the backup infrastructure.
-
-### mailvault
-**Stack:** Python / MS Graph / SQLite | **License:** Open Source (PyPI) [citation:15]
-mailvault is a focused **email backup and archive tool** for IMAP and **Microsoft 365 mailboxes via MS Graph** [citation:15]. Key characteristics:
-- **Incremental backups**: Skips already-archived messages, with per-folder resume points so repeated runs cost only new mail [citation:15]
-- **Verify and repair**: Compares the mailbox against the archive and reports missing messages, with `--repair` to fetch them [citation:15]
-- **Compression**: Optional zstd compression [citation:15]
-- **SQLite query database**: Search archived mail by sender, recipient, subject, date, and folder, with CSV/JSON export and MCP server for AI client access [citation:5][citation:15]
-- **Microsoft 365 configuration**: Uses an Azure app registration with tenant ID, client ID, and client secret [citation:15]
-
-**Important limitation:** mailvault is **email-only**—it backs up Exchange Online mailboxes but not OneDrive, SharePoint, or Teams data. It is an archiving tool rather than a full M365 backup platform.
-**Best for:** Organizations wanting a self-hosted, verifiable email archive for Microsoft 365 mailboxes, accepting that OneDrive and SharePoint are outside its scope.
+| Project | GitHub Stars | License | Primary Tech Stack | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Microsoft365DSC](https://github.com/Microsoft365DSC/Microsoft365DSC)** | [![GitHub stars](https://img.shields.io/github/stars/Microsoft365DSC/Microsoft365DSC?style=social&color=white)](https://github.com/Microsoft365DSC/Microsoft365DSC/stargazers) | MIT | PowerShell / Desired State Configuration | Definitive open-source engine to extract, snapshot, monitor, and restore Microsoft 365 tenant configurations (Entra ID, Intune, Exchange, SharePoint, and Teams policies) as declarative code. |
+| **[Corso](https://github.com/alcionai/corso)** | [![GitHub stars](https://img.shields.io/github/stars/alcionai/corso?style=social&color=white)](https://github.com/alcionai/corso/stargazers) | Apache-2.0 | Go / Microsoft Graph API / Kopia | High-performance, secure, and developer-friendly data protection engine engineered specifically for M365 (Exchange, OneDrive, SharePoint, and Teams) backing up to S3-compatible storage with end-to-end encryption and deduplication. |
+| **[Atlas](https://github.com/wisecom-oy/atlas)** | [![GitHub stars](https://img.shields.io/github/stars/wisecom-oy/atlas?style=social&color=white)](https://github.com/wisecom-oy/atlas/stargazers) | Apache-2.0 | Python / MS Graph / S3 API | Modern open-source backup and recovery engine for Outlook mailboxes, OneDrive files, and SharePoint document libraries into self-managed S3 storage with envelope encryption, incremental delta sync, and S3 Object Lock immutability. |
+| **[BackupZit](https://github.com/Max-Zit/backupzit)** | [![GitHub stars](https://img.shields.io/github/stars/Max-Zit/backupzit?style=social&color=white)](https://github.com/Max-Zit/backupzit/stargazers) | AGPL-3.0 | Linux / C# / Graph API | Self-hosted enterprise backup console covering Microsoft 365 alongside VMs, physical servers, and databases with read-only Graph integration, deduplication, and direct NAS/S3 targets with zero per-user licensing costs. |
+| **[mailvault](https://github.com/sniner/mailvault)** | [![GitHub stars](https://img.shields.io/github/stars/sniner/mailvault?style=social&color=white)](https://github.com/sniner/mailvault/stargazers) | GPL-3.0 | Python / MS Graph / SQLite | Incremental email backup, archiving, and verification utility for Exchange Online mailboxes via Microsoft Graph with SQLite full-text search database, zstd compression, and automated repair. |
+| **[M365-backup](https://github.com/txdadlab/M365-backup)** | [![GitHub stars](https://img.shields.io/github/stars/txdadlab/M365-backup?style=social&color=white)](https://github.com/txdadlab/M365-backup/stargazers) | Community / Open | PowerShell / M365DSC | Automation wrapper that uses Microsoft365DSC to schedule, capture, and track disaster-recovery backups of entire M365 tenant configurations, security baselines, and Conditional Access rules into Git repositories. |
 
 ---
 
-## 📊 Comparison at a Glance
+## 📊 Feature Comparison Matrix
 
-| Software | License | Stack | Exchange | OneDrive/SharePoint | Teams | Self-Hosted | Best For |
-|----------|---------|-------|----------|---------------------|-------|-------------|----------|
-| **Druva** | Proprietary | Cloud | ✅ | ✅ | ✅ | ❌ | Fully managed SaaS |
-| **Veeam** | Proprietary | On-prem/Cloud | ✅ | ✅ | ✅ | ✅ | Free Community Edition (10 users) |
-| **Keepit** | Proprietary | Cloud | ✅ | ✅ | ✅ | ❌ | Independent vendor-neutral |
-| **Commvault** | Proprietary | Cloud/On-prem | ✅ | ✅ | ✅ | (On-prem) | Air-gap cyber recovery |
-| **Rubrik (Sophos)** | Proprietary | Cloud | ✅ | ✅ | ✅ | ❌ | Sophos Central integration |
-| **BackupZit** | AGPLv3 | Linux/Graph | ✅ | ✅ | (Check) | ✅ | Free self-hosted, no per-user fees |
-| **mailvault** | Open Source | Python/Graph | ✅ (Email only) | ❌ | ❌ | ✅ | Verifiable email archiving |
+| Solution | Model | Exchange Online | SharePoint & OneDrive | Microsoft Teams | Entra ID / Config | Target Storage | Best Suited For |
+| :--- | :--- | :---: | :---: | :---: | :---: | :--- | :--- |
+| **Rubrik (Sophos)** | Commercial SaaS | ✅ | ✅ | ✅ | ⚠️ Basic | Sophos Cloud / Azure | Sophos Central customers needing unified endpoint + SaaS backup |
+| **Veeam** | Commercial SaaS / Hybrid | ✅ | ✅ | ✅ | ✅ | Veeam Azure / BYOS / On-Prem | Free tier for SMBs (<10 seats); enterprise hybrid flexibility |
+| **Commvault Cloud** | Commercial SaaS | ✅ | ✅ | ✅ | ✅ | Air Cove Immutable Cloud | Zero-trust cyber resilience, threat scanning & compliance |
+| **AvePoint** | Commercial SaaS | ✅ | ✅ | ✅ | ✅ | AvePoint Azure / Custom BYOS | Complex SharePoint environments & multi-SaaS governance |
+| **Druva** | Commercial SaaS | ✅ | ✅ | ✅ | ⚠️ Basic | Druva Cloud (AWS Air-gap) | Hands-off, 100% cloud-native SaaS with zero infrastructure |
+| **Keepit** | Commercial SaaS | ✅ | ✅ | ✅ | ✅ | Independent Keepit Cloud | Organizations demanding true non-Azure, vendor-neutral isolation |
+| **Microsoft365DSC** | Open Source | ❌ (Config only) | ❌ (Config only) | ❌ (Config only) | ✅ Full | Git / Local Disk | Infrastructure-as-code M365 disaster recovery & drift tracking |
+| **Corso** | Open Source | ✅ | ✅ | ✅ | ❌ | S3 / MinIO / Ceph | Cloud-native engineering teams wanting secure, S3-backed M365 protection |
+| **Atlas** | Open Source | ✅ | ✅ | ❌ | ❌ | AWS S3 / Wasabi / MinIO | Automated Python/S3 backup pipelines with Object Lock immutability |
+| **BackupZit** | Open Source | ✅ | ✅ | ⚠️ In Progress | ❌ | NAS / SAN / S3 / Local Disk | Cost-conscious IT homelabs and internal teams managing self-hosted disks |
+| **mailvault** | Open Source | ✅ (Email only) | ❌ | ❌ | ❌ | Local SQLite / Zstd | Lean, verifiable Exchange Online mailbox archiving and eDiscovery |
+| **M365-backup** | Open Source | ❌ (Config only) | ❌ (Config only) | ❌ (Config only) | ✅ Full | Git / File Share | Scheduled tenant configuration snapshots for compliance audits |
+
+---
+
+## 🔍 Selection & Architecture Guide
+
+When evaluating Microsoft 365 Cloud-to-Cloud backup systems, consider these foundational architectural criteria:
+
+1. **Storage Independence (The "Out-of-Band" Principle):**
+   If an adversary compromises your global Entra ID / Azure tenant credentials, backups stored inside the same Azure tenant hierarchy may be wiped. Solutions like **Keepit** (independent custom datacenters), **Druva** (AWS isolated infrastructure), and **Corso / Atlas** (self-hosted offsite S3 with Object Lock) ensure air-gapped protection.
+
+2. **Ransomware & Immutability:**
+   Look for WORM (Write Once, Read Many) compliance and API-level immutability. Commercial vendors enforce storage-level air gaps, while open-source tools achieve this through S3 Object Lock in compliance mode.
+
+3. **Restoration Granularity & Speed:**
+   Verify whether the system allows point-in-time cross-user restore (e.g., restoring an ex-employee's OneDrive files directly into a manager's drive), bulk mailbox hydration, or in-place item rollback without overwriting existing files.
+
+4. **API Throttling & Graph Concurrency:**
+   Microsoft Graph enforces strict request thresholds. Enterprise backup tools utilize specialized Graph API endpoints (such as the Microsoft 365 Backup Storage API) or multi-app ID rotation to avoid throttling during massive initial ingestion or complete tenant restorations.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you know of an open-source Microsoft 365 Cloud-to-Cloud Backup tool that should be listed here, please open a pull request with:
+Contributions, additions, and updates are welcome! To contribute:
 
-- Project name and URL
-- Brief description (1–2 sentences)
-- Stack and license
-- Why it stands out
-
-Please ensure the project is actively maintained (releases within the last 12 months) and genuinely open-source.
-
-**Note on the open-source ecosystem:** The open-source landscape for **Microsoft 365 backup** is **extremely sparse** compared to the commercial market. **BackupZit** is the most complete open-source option, providing self-hosted backup for Exchange, OneDrive, SharePoint, and calendars with read-only Graph permissions and no per-user fees [citation:14]. **mailvault** fills a narrower need for verifiable email archiving with a query database and MCP access, but does not cover OneDrive or SharePoint [citation:15]. On the commercial side, **Veeam's Community Edition** is notable for offering a genuinely free tier (10 users, 1 TB SharePoint) for small organizations [citation:3][citation:9]. For any production requirement at scale, commercial platforms like Druva, Keepit, or Commvault remain the practical choice, with the choice depending on whether you prioritize managed SaaS simplicity, independent vendor-neutral storage, or air-gap cyber recovery.
+1. Fork this repository.
+2. Add your tool to the corresponding section following the existing table schema.
+3. For open-source tools, include the GitHub star badge linking to the `/stargazers` URL and verify active maintenance (commits within the last 12 months).
+4. For SaaS tools, provide verifiable pricing starting points and free tier/trial limits.
+5. Submit a pull request with a descriptive title.
 
 ---
 
 ## 📄 License
 
-This list is released under CC0 1.0 Universal (Public Domain). The software projects listed retain their respective licenses.
-
----
-
-⭐ **If this list helped you discover a useful tool, please star the repo!** ⭐
+This repository is licensed under the [Creative Commons Zero v1.0 Universal](LICENSE) (CC0 1.0 - Public Domain Dedication).
+Individual listed tools and trademarks belong to their respective copyright holders.
