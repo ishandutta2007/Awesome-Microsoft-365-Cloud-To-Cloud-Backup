@@ -133,7 +133,7 @@ Contributions, additions, and updates are welcome! 🎉 To contribute:
 
 1. 🍴 Fork this repository.
 2. 📝 Add your tool to the corresponding section following the existing table schema.
-3. 🏷️ For open-source tools, include the GitHub Stars_Badge linking to the `/stargazers` URL and verify active maintenance (commits within the last 12 months).
+3. 🏷️ For open-source tools, include the GitHub_Stars_Badge linking to the `/stargazers` URL and verify active maintenance (commits within the last 12 months).
 4. 💵 For SaaS tools, provide verifiable pricing starting points and free tier/trial limits.
 5. 🚀 Submit a pull request with a descriptive title.
 
